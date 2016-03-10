@@ -53,10 +53,14 @@ export default {
     }
   },
   methods: {
+    // On click, set the timestamp in the state and dispatches this change to the parent component
+    // (the video), which will run the `seek` method
     captionHandler (index) {
       this.setTimestamp(this.captions[index].start)
       this.$dispatch('seek')
     },
+    // Turns captions on or off and dispatches this change to the video so it can turn its event
+    // listener on or off. Also runs the action to get the caption data if there isn't any
     toggleCaptions (bool) {
       if (bool === true && !this.captions.length) {
         this.setCaptions()
@@ -64,12 +68,14 @@ export default {
       this.setCaptionsOn(bool)
       this.$dispatch('captions-on', bool)
     },
+    // Scrolls the element when receiving the `timeupdate` broadcast from the video component
     updateScroll () {
       const containerTop = this.$els.cccontainer.offsetTop
       const activeTop = this.$els.cccontainer.querySelector('.active').offsetTop
       this.$els.cccontainer.scrollTop = activeTop - containerTop - 40
     }
   },
+  // Hanlder for the `update-scroll` event
   events: {
     'update-scroll': function () {
       this.updateScroll()
