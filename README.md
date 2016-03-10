@@ -20,6 +20,8 @@ To that end, I had the closed caption data fetched from a mock server, serving w
 
 Meanwhile the functionality is more or less what one would look fore in a closed captioning feature, I think. The text is all there at all times, clicking on a chunk of text will take you to that point in the video. Meanwhile the user can choose to have the closed captions auto-scroll down as the video plays, or remain static.
 
+Turning off closed captioning removes the event listeners on the captions and the video player.
+
 ## Architecture
 
 It's a simple "app" but since this would probably be part of something much larger, I wrote it as components that could easily be expanded in functionality down the line. 
