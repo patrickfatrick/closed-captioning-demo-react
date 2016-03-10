@@ -12,7 +12,7 @@ Navigate to localhost:8080.
 
 ## What is it?
 
-This is a tiny demo for closed captioning a video based on data fetched from the server. It's all built in Vue with Vuex to manage the state tee (as small as it is).
+This is a tiny demo for closed captioning a video based on data fetched from the server. It's all built in Vue with Vuex to manage the state tree (as small as it is).
 
 My main concerns were to make it realistic and functional.
 
@@ -29,3 +29,7 @@ State is handled in a typical Flux-like implementation with a store, mutations t
 The call to the server data is handled in a separate service function, and handled with the `fetch` API (polyfilled for browsers that don't already support it).
 
 There are just two components, one for the video player and one for the closed captioning and buttons that control it.
+
+## Thanks for checking this out!
+
+Let me know if you have any questions!
