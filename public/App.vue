@@ -9,11 +9,6 @@
 import VideoPlayer from './components/VideoPlayer.vue'
 
 export default {
-  vuex: {
-    getters: {
-      test: (state) => state.test
-    }
-  },
   components: {
     VideoPlayer
   }
