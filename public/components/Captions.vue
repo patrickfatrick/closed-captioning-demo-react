@@ -103,6 +103,7 @@ export default {
   background-color: #FFCC66;
 }
 a.closed-caption {
+  color: #000;
   text-decoration: none;
 }
 a.closed-caption:visited {
