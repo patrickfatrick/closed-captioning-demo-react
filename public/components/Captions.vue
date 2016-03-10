@@ -2,11 +2,13 @@
   <div id="button-container">
     <button
       id="closed-captions-button"
+      title="Closed Captions"
       @click="toggleCaptions(!captionsOn)">
       {{(captionsOn) ? 'Turn off Closed Captioning' : 'Turn on Closed Captioning'}}
     </button>
     <button
       id="closed-captions-scroll-button"
+      title="Auto-Scroll"
       v-if="captionsOn"
       @click="setScroll(!scroll)">
       {{(scroll) ? 'Turn off Auto-Scroll' : 'Turn on Auto-Scroll'}}
