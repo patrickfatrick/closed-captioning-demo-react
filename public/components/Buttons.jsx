@@ -10,6 +10,11 @@ const buttonContainerStyles = {
   textAlign: 'center'
 }
 
+const buttonStyles = {
+  marginRight: '0.3rem',
+  marginLeft: '0.3rem'
+}
+
 const Buttons = React.createClass({
   mixins: [PureRenderMixin],
   render: function () {
@@ -18,6 +23,7 @@ const Buttons = React.createClass({
         <button
           id='closed-captions-button'
           title='Closed Captions'
+          style={buttonStyles}
           onClick={() => this.props.toggleCaptions(this.props.player, this.props.captions, !this.props.captionsOn)}>
           Turn {(this.props.captionsOn) ? 'off' : 'on'} Closed Captioning
         </button>
@@ -25,6 +31,7 @@ const Buttons = React.createClass({
           ? <button
             id='closed-captions-scroll-button'
             title='Auto-Scroll'
+            style={buttonStyles}
             onClick={() => this.props.toggleScroll(!this.props.scroll)}>
             Turn {(this.props.scroll) ? 'off' : 'on'} Auto-Scroll
           </button>
