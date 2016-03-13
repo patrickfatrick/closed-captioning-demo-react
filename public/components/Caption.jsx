@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 const whitespaceStyles = {
   paddingLeft: '0.1rem',
-  paddingRight: '0.1rem'
+  paddingRight: '0.2rem'
 }
 
 const closedCaptionActiveStyles = {
