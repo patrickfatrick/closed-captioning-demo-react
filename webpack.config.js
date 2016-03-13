@@ -3,7 +3,7 @@ var path = require('path')
 
 module.exports = {
   entry: [
-    './main.js'
+    './main.jsx'
   ],
   output: {
     path: path.join(__dirname, '/public/dist/'),
@@ -20,30 +20,19 @@ module.exports = {
     ],
     loaders: [
       {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.js$/,
+        test: /\.js|\.jsx$/,
         exclude: /node_modules/,
         loader: 'babel'
       }
     ]
   },
-  vue: {
-    loaders: {
-      js: 'babel!standard'
-    }
-  },
   babel: {
-    presets: ['es2015', 'stage-2'],
+    presets: ['react', 'es2015', 'stage-2'],
     plugins: ['transform-runtime']
   },
   plugins: [
     new webpack.ProvidePlugin({
-      'Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
-      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
-      'window.fetch': 'exports?self.fetch!whatwg-fetch'
+      'Promise': 'imports?this=>global!exports?global.Promise!es6-promise'
     })
   ]
 }

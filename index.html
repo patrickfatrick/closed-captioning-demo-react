@@ -4,9 +4,30 @@
   <title>Closed Captioning Demo</title>
   <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <style>
+  	.container {
+		  margin-right: auto;
+		  margin-left: auto;
+		  margin-top: 2rem;
+		  width: 100%;
+		}
+		@media all and (min-width: 992px) {
+		  .container {
+		    margin-top: 6rem;
+		    width: 800px;
+		  }
+		}
+		a {
+		  color: #000;
+		  text-decoration: none;
+		}
+		a:visited {
+		  color: inherit;
+		}
+  </style>
 </head>
 <body>
-  <app></app>
+  <app id="app"></app>
   <script src="/public/dist/bundle.js"></script>
 </body>
 </html>
