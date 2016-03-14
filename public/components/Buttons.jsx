@@ -7,21 +7,23 @@ import {getCaptions} from '../services/caption-service'
 
 const Buttons = React.createClass({
   mixins: [PureRenderMixin],
-  buttonContainerStyles: {
-    marginTop: '1rem',
-    textAlign: 'center'
-  },
-  buttonStyles: {
-    marginRight: '0.3rem',
-    marginLeft: '0.3rem'
+  styles: {
+    buttonContainer: {
+      marginTop: '1rem',
+      textAlign: 'center'
+    },
+    button: {
+      marginRight: '0.3rem',
+      marginLeft: '0.3rem'
+    }
   },
   render () {
     return (
-      <div id='button-container' style={this.buttonContainerStyles}>
+      <div id='button-container' style={this.styles.buttonContainer}>
         <button
           id='closed-captions-button'
           title='Closed Captions'
-          style={this.buttonStyles}
+          style={this.styles.button}
           onClick={() => this.props.toggleCaptions(this.props.player, this.props.captions, !this.props.captionsOn)}>
           Turn {(this.props.captionsOn) ? 'off' : 'on'} Closed Captioning
         </button>
@@ -29,7 +31,7 @@ const Buttons = React.createClass({
           ? <button
             id='closed-captions-scroll-button'
             title='Auto-Scroll'
-            style={this.buttonStyles}
+            style={this.styles.button}
             onClick={() => this.props.toggleScroll(!this.props.scroll)}>
             Turn {(this.props.scroll) ? 'off' : 'on'} Auto-Scroll
           </button>

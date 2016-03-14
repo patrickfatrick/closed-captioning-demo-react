@@ -5,15 +5,17 @@ import Buttons from './Buttons.jsx'
 
 const VideoPlayer = React.createClass({
   mixins: [PureRenderMixin],
-  videoContainerStyles: {
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    textAlign: 'center'
+  styles: {
+    videoContainer: {
+      marginRight: 'auto',
+      marginLeft: 'auto',
+      textAlign: 'center'
+    }
   },
   render () {
     return (
       <div>
-        <div id='video-container' style={this.videoContainerStyles}>
+        <div id='video-container' style={this.styles.videoContainer}>
           <video autobuffer controls
             onTimeUpdate={(e) => {
               this.props.timeUpdate(e, this.props.captionWindow, this.props.captionsOn, this.props.scroll)
