@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     timeUpdate (e, captionWindow, captionsOn, scroll) {
-      if (!this.captionsOn) return
+      if (!captionsOn) return
       dispatch(updateTimes(e))
       if (scroll) scrollHandler(captionWindow)
     },
