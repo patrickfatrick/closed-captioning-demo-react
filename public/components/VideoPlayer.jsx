@@ -3,18 +3,17 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import CaptionsContainer from '../containers/CaptionsContainer.jsx'
 import Buttons from './Buttons.jsx'
 
-const videoContainerStyles = {
-  marginRight: 'auto',
-  marginLeft: 'auto',
-  textAlign: 'center'
-}
-
 const VideoPlayer = React.createClass({
   mixins: [PureRenderMixin],
+  videoContainerStyles: {
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    textAlign: 'center'
+  },
   render () {
     return (
       <div>
-        <div id='video-container' style={videoContainerStyles}>
+        <div id='video-container' style={this.videoContainerStyles}>
           <video autobuffer controls
             onTimeUpdate={(e) => {
               this.props.timeUpdate(e, this.props.captionWindow, this.props.captionsOn, this.props.scroll)

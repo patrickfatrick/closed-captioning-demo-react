@@ -3,28 +3,26 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import Caption from './Caption.jsx'
 
-const closedCaptionsContainerStyles = {
-  margin: '1rem',
-  overflowY: 'scroll',
-  fontFamily: 'Lato, sans-serif',
-  fontSize: '1rem',
-  border: '1px dashed gray',
-  height: '8rem',
-  padding: '0.5rem'
-}
-
-const closedCaptionsContainerStylesOff = {
-  display: 'none'
-}
-
 const Captions = React.createClass({
   mixins: [PureRenderMixin],
-  render: function () {
+  closedCaptionsContainerStyles: {
+    margin: '1rem',
+    overflowY: 'scroll',
+    fontFamily: 'Lato, sans-serif',
+    fontSize: '1rem',
+    border: '1px dashed gray',
+    height: '8rem',
+    padding: '0.5rem'
+  },
+  closedCaptionsContainerStylesOff: {
+    display: 'none'
+  },
+  render () {
     return (
       <div
         id='closed-captions-container'
         className={(this.props.captionsOn) ? 'captions-on' : ''}
-        style={(this.props.captionsOn) ? closedCaptionsContainerStyles : closedCaptionsContainerStylesOff}
+        style={(this.props.captionsOn) ? this.closedCaptionsContainerStyles : this.closedCaptionsContainerStylesOff}
         ref={(node) => {
           this.cccontainer = node
         }}>
