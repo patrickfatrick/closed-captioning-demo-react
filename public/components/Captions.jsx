@@ -2,11 +2,12 @@ import React, { PropTypes } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import ImmutablePropTypes from 'react-immutable-proptypes'
 import Caption from './Caption.jsx'
+import m from './m'
 
 const Captions = React.createClass({
   mixins: [PureRenderMixin],
   styles: {
-    closedCaptionsContainerOn: {
+    closedCaptionsContainer: {
       margin: '1rem',
       overflowY: 'scroll',
       fontFamily: 'Lato, sans-serif',
@@ -23,13 +24,15 @@ const Captions = React.createClass({
     return (
       <div
         id='closed-captions-container'
-        className={(this.props.captionsOn) ? 'captions-on' : ''}
-        style={(this.props.captionsOn ? this.styles.closedCaptionsContainerOn : this.styles.closedCaptionsContainerOff)}
+        style={m(
+          this.styles.closedCaptionsContainer,
+          !this.props.captionsOn && this.styles.closedCaptionsContainerOff
+        )}
         ref={(node) => {
           this.cccontainer = node
         }}>
-        {(this.props.captionsOn)
-          ? <div
+        {(this.props.captionsOn) &&
+          <div
             id='closed-captions'>
             {this.props.captions.map((caption, i) => {
               return (
@@ -42,7 +45,6 @@ const Captions = React.createClass({
               )
             })}
           </div>
-          : null
         }
       </div>
     )

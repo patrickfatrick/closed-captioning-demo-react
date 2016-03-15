@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import CaptionsContainer from '../containers/CaptionsContainer.jsx'
 import Buttons from './Buttons.jsx'
+import m from './m'
 
 const VideoPlayer = React.createClass({
   mixins: [PureRenderMixin],
@@ -15,7 +16,7 @@ const VideoPlayer = React.createClass({
   render () {
     return (
       <div>
-        <div id='video-container' style={this.styles.videoContainer}>
+        <div id='video-container' style={m(this.styles.videoContainer)}>
           <video autobuffer controls
             onTimeUpdate={(e) => {
               this.props.timeUpdate(e, this.props.captionWindow, this.props.captionsOn, this.props.scroll)

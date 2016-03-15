@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import ImmutablePropTypes from 'react-immutable-proptypes'
+import m from './m'
 
 const Caption = React.createClass({
   mixins: [PureRenderMixin],
@@ -16,19 +18,18 @@ const Caption = React.createClass({
     return (
       <span className='caption-container'>
         <a href='#'
-          className={'closed-caption' + ((this.props.caption.get('active')) ? ' active' : '')}
-          style={(this.props.caption.get('active') ? this.styles.closedCaptionActive : null)}
+          style={m(this.props.caption.get('active') && this.styles.closedCaptionActive)}
           onClick={() => this.props.captionHandler(this.props.player, this.props.caption.get('start'))}>
           {this.props.caption.get('caption')}
         </a>
-        <span className='whitespace' style={this.styles.whitespace}></span>
+        <span className='whitespace' style={m(this.styles.whitespace)}></span>
       </span>
     )
   }
 })
 
 Caption.propTypes = {
-  caption: PropTypes.object.isRequired,
+  caption: ImmutablePropTypes.map.isRequired,
   captionHandler: PropTypes.func.isRequired
 }
 

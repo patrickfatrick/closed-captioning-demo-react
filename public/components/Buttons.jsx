@@ -4,6 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes'
 import {connect} from 'react-redux'
 import {setCaptionsOn, setCaptions, setScroll} from '../store/actions'
 import {getCaptions} from '../services/caption-service'
+import m from './m'
 
 const Buttons = React.createClass({
   mixins: [PureRenderMixin],
@@ -19,23 +20,22 @@ const Buttons = React.createClass({
   },
   render () {
     return (
-      <div id='button-container' style={this.styles.buttonContainer}>
+      <div id='button-container' style={m(this.styles.buttonContainer)}>
         <button
           id='closed-captions-button'
           title='Closed Captions'
-          style={this.styles.button}
+          style={m(this.styles.button)}
           onClick={() => this.props.toggleCaptions(this.props.player, this.props.captions, !this.props.captionsOn)}>
           Turn {(this.props.captionsOn) ? 'off' : 'on'} Closed Captioning
         </button>
-        {(this.props.captionsOn)
-          ? <button
+        {(this.props.captionsOn) &&
+          <button
             id='closed-captions-scroll-button'
             title='Auto-Scroll'
-            style={this.styles.button}
+            style={m(this.styles.button)}
             onClick={() => this.props.toggleScroll(!this.props.scroll)}>
             Turn {(this.props.scroll) ? 'off' : 'on'} Auto-Scroll
           </button>
-          : null
         }
       </div>
     )
